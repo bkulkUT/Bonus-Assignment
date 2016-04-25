@@ -10,6 +10,7 @@ public class Code {
 	
 	private final char[] colors = new char[6];
 	private char[] secretCode = new char[4];
+	private String secretCode_string = "";
 	private char[] userGuess = new char[4];
 	private Pegs myPegs = new Pegs();
 	private boolean wonGame = false;
@@ -28,6 +29,7 @@ public class Code {
 		for (int i = 0; i < secretCode.length; i++) {
 			int random = (int) (Math.random() * 5);
 			secretCode[i] = colors[random];
+			secretCode_string += secretCode[i] + " ";
 		}
 	}
 	
@@ -67,14 +69,21 @@ public class Code {
 		
 		return wonGame;
 	}
-	
-	public void printSecretCode () {
+
+	public void printSecretCode() {
 		
-		String code = "";
-		for (int i = 0; i < secretCode.length; i++) {
-			code += secretCode[i] + " ";
-		}
-		System.out.println("The secret code is ... " + code);
+//		String code = "";
+//		for (int i = 0; i < secretCode.length; i++) {
+//			code += secretCode[i] + " ";
+//		}
+//		System.out.println("The secret code is ... " + code);
+		System.out.println("The secret code is ... " + secretCode_string);
+
+	}
+	
+	public String getSecretCode() {
+		
+		return secretCode_string;
 	}
 
 		

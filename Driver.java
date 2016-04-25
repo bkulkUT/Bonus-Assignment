@@ -7,21 +7,26 @@ package bonus;
 import javax.swing.JOptionPane;
 
 public class Driver {
+	final static int YES = 0;
+	
 	public static void main (String args[]) {
 		
-		boolean start = showIntro();
-
-		if (start) {
-			Game myGame = new Game(true);
-			myGame.runGame();
-		}
-		
-		else {
-			JOptionPane.showMessageDialog(null, "Goodbye!");
-		}
+		int start = showIntro();
+		while (true) {
+			if (start == YES) {
+				Game myGame = new Game(true);
+				myGame.runGame();
+				start = JOptionPane.showConfirmDialog(null, "Do you want to play again? (Y/N)", null, JOptionPane.YES_NO_OPTION);	
+			}
+			
+			else {
+				JOptionPane.showMessageDialog(null, "Goodbye!");
+				break;
+			}
+		}	
 	}
 	
-	public static boolean showIntro() {
+	public static int showIntro() {
 		
 		JOptionPane.showMessageDialog(null, "Welcome to Mastermind. Here are the rules.\n\n"
 											+ "This is a text version of the classic board game Mastermind.\n"
@@ -38,10 +43,7 @@ public class Driver {
 		
 		int answer = JOptionPane.showConfirmDialog(null, "Are you ready to play? (Y/N)", null, JOptionPane.YES_NO_OPTION);
 		
-		if (answer == 0) 
-			return true;
-		
-		return false;
+		return answer;
 	}
 }
 

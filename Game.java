@@ -46,6 +46,7 @@ public class Game {
 				}
 				
 				else {
+					numGuesses--;	
 					String output = gameCode.handleInput();
 					guess = "Guess: " + guess + "\n" + output;
 					gameBoard.addToHistory(guess);
@@ -54,12 +55,22 @@ public class Game {
 					if (gameCode.checkGameStatus()) {
 						break;
 					}
-					numGuesses--;	
 				}
 			}			
+		}		
+		endGame();
+	}
+	
+	private void endGame() {
+		
+		String answer = gameCode.getSecretCode();
+		if (numGuesses > 0) {
+			JOptionPane.showMessageDialog(null, "You guessed " + answer + " correctly!\nYou win!");
 		}
 		
-		System.out.println("Outside of the while-loop in runGame ... !");
+		else {
+			JOptionPane.showConfirmDialog(null, "You've run out of guesses! The secret code is " + answer);
+		}
 	}
 }
 
