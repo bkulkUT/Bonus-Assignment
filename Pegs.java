@@ -12,7 +12,7 @@ public class Pegs {
 	
 	public String createPegs(char[] userInput, char[] secretCode) {
 		String result;
-	    ArrayList<Character> countedOnce = new ArrayList<Character>();
+		ArrayList<Integer> countedOnce = new ArrayList<Integer>();
 		whitePegs = 0;
 		blackPegs = 0;
 		
@@ -24,8 +24,8 @@ public class Pegs {
 		
 	    for (char eachColor : secretCode) {
 	        for (int j = 0; j < 4; j++) {
-	            if (eachColor == userInput[j] && !countedOnce.contains(userInput[j])) {
-		          countedOnce.add(userInput[j]);
+	            if (eachColor == userInput[j] && !countedOnce.contains(j)) {
+		          countedOnce.add(j);
 		          whitePegs++;
 		          break;
 		        }		
@@ -37,7 +37,7 @@ public class Pegs {
 	    	return result = "Result: " + blackPegs + " black pegs!";
 	    }
 	    
-		return result = "Result: " + whitePegs + " white pegs and " + blackPegs + " black pegs";
+		return result = "Result: " + whitePegs + " white peg(s) and " + blackPegs + " black peg(s)";
 	}
 	
 	public int getWhitePegs() {
@@ -50,8 +50,3 @@ public class Pegs {
 		return blackPegs;
 	}
 }
-
-
-
-
-

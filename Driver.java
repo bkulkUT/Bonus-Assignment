@@ -14,9 +14,9 @@ public class Driver {
 		int start = showIntro();
 		while (true) {
 			if (start == YES) {
-				Game myGame = new Game(true);
+				Game myGame = new Game(false);
 				myGame.runGame();
-				start = JOptionPane.showConfirmDialog(null, "Do you want to play again? (Y/N)", null, JOptionPane.YES_NO_OPTION);	
+				start = JOptionPane.showConfirmDialog(null, "Do you want to play again?", null, JOptionPane.YES_NO_OPTION);	
 			}
 			
 			else {
@@ -41,29 +41,8 @@ public class Driver {
 											+ "When entering guesses you only need to enter the first character of each color as a capital letter.\n\n"
 											+ "You have 12 guesses to figure out the secret code or you lose the game");
 		
-		int answer = JOptionPane.showConfirmDialog(null, "Are you ready to play? (Y/N)", null, JOptionPane.YES_NO_OPTION);
+		int answer = JOptionPane.showConfirmDialog(null, "Are you ready to play?", null, JOptionPane.YES_NO_OPTION);
 		
 		return answer;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -46,7 +46,7 @@ public class Code {
 			
 			else {
 				userGuess[i] = guess.charAt(i);
-				System.out.print(userGuess[i] + " ");
+//				System.out.print(userGuess[i] + " ");
 			}
 		}
 		
@@ -72,13 +72,7 @@ public class Code {
 
 	public void printSecretCode() {
 		
-//		String code = "";
-//		for (int i = 0; i < secretCode.length; i++) {
-//			code += secretCode[i] + " ";
-//		}
-//		System.out.println("The secret code is ... " + code);
 		System.out.println("The secret code is ... " + secretCode_string);
-
 	}
 	
 	public String getSecretCode() {
@@ -88,22 +82,3 @@ public class Code {
 
 		
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

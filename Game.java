@@ -27,14 +27,19 @@ public class Game {
 			gameCode.printSecretCode();
 		}
 		
+		String guess = "";
 		while (numGuesses > 0) {
 			
-			String guess = JOptionPane.showInputDialog("You have " + numGuesses + " guesses left.\n"
+			guess = JOptionPane.showInputDialog("You have " + numGuesses + " guesses left.\n"
 					+ "What is your guess?\n"
-					+ "(Type in the characters and press enter. To view previous entries, enter 'History')\n"
+					+ "Type in the characters (without spaces) and press enter. To view previous entries, enter 'History'\n"
 					+ "Enter guess:");
 			
-			if (guess.equals("History")) {
+			if (guess == null) {
+				break;
+			}
+			
+			if (guess.equals("History") || guess.equals("history")) {
 				gameBoard.showHistory();
 			}		
 			
@@ -57,8 +62,12 @@ public class Game {
 					}
 				}
 			}			
-		}		
-		endGame();
+		}
+		
+		if (guess != null)
+		{
+			endGame();
+		}
 	}
 	
 	private void endGame() {
@@ -69,15 +78,7 @@ public class Game {
 		}
 		
 		else {
-			JOptionPane.showConfirmDialog(null, "You've run out of guesses! The secret code is " + answer);
+			JOptionPane.showMessageDialog(null, "You've run out of guesses! The secret code is " + answer);
 		}
 	}
 }
-
-
-
-
-
-
-
-
