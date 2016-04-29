@@ -20,7 +20,7 @@ public class Driver {
 					break;
 				}
 				
-				Game myGame = new Game(true, guesses);
+				Game myGame = new Game(false, guesses);
 				myGame.runGame();
 				start = JOptionPane.showConfirmDialog(null, "Do you want to play again?", null, JOptionPane.YES_NO_OPTION);	
 			}
