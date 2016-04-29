@@ -2,7 +2,6 @@
  * Bharat Kulkarni
  * bsk524
  */
-package bonus;
 
 import javax.swing.JOptionPane;
 
@@ -14,7 +13,14 @@ public class Driver {
 		int start = showIntro();
 		while (true) {
 			if (start == YES) {
-				Game myGame = new Game(false);
+				int guesses = getGuesses();
+				
+				if (guesses == -1) {
+					JOptionPane.showMessageDialog(null, "Goodbye!");
+					break;
+				}
+				
+				Game myGame = new Game(true, guesses);
 				myGame.runGame();
 				start = JOptionPane.showConfirmDialog(null, "Do you want to play again?", null, JOptionPane.YES_NO_OPTION);	
 			}
@@ -39,10 +45,44 @@ public class Driver {
 											+ "a white peg.\nFor each peg, which is fully incorrect, you get no feedback.\n"
 											+ "Only the first letter of the color is displayed. B for Blue, R for Red, and so forth.\n"
 											+ "When entering guesses you only need to enter the first character of each color as a capital letter.\n\n"
-											+ "You have 12 guesses to figure out the secret code or you lose the game");
+									  );
 		
 		int answer = JOptionPane.showConfirmDialog(null, "Are you ready to play?", null, JOptionPane.YES_NO_OPTION);
 		
 		return answer;
+	}
+	
+	public static int getGuesses() {
+		
+		while (true) {
+			int result;
+			String input = JOptionPane.showInputDialog(null, "Enter the number of guesses (between 5-12) that you want");
+			
+			if (input == null) {
+				return -1;
+			}
+			
+			else if (input.matches("[0123456789]+")) {
+				try {
+					result = Integer.parseInt(input);
+				}
+				
+				catch (NumberFormatException nfe) {
+					result = -1;
+				}
+				
+				if (result >= 5 && result <= 12) {
+					return result;
+				}
+				
+				else {
+					JOptionPane.showMessageDialog(null, "Invalid input! Please try again ...");
+				}
+			}
+	
+			else {
+				JOptionPane.showMessageDialog(null, "Invalid input! Please try again ...");
+			}
+		}
 	}
 }

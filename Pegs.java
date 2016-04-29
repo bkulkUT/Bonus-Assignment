@@ -2,7 +2,6 @@
  * Bharat Kulkarni
  * bsk524
  */
-package bonus;
 
 import java.util.ArrayList;
 

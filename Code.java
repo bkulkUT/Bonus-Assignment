@@ -2,7 +2,6 @@
  * Bharat Kulkarni
  * bsk524
  */
-package bonus;
 
 import java.util.Arrays;
 
@@ -29,7 +28,7 @@ public class Code {
 		for (int i = 0; i < secretCode.length; i++) {
 			int random = (int) (Math.random() * 5);
 			secretCode[i] = colors[random];
-			secretCode_string += secretCode[i] + " ";
+			secretCode_string += secretCode[i];
 		}
 	}
 	
@@ -46,7 +45,6 @@ public class Code {
 			
 			else {
 				userGuess[i] = guess.charAt(i);
-//				System.out.print(userGuess[i] + " ");
 			}
 		}
 		
@@ -78,7 +76,5 @@ public class Code {
 	public String getSecretCode() {
 		
 		return secretCode_string;
-	}
-
-		
+	}		
 }

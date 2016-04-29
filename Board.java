@@ -2,7 +2,6 @@
  * Bharat Kulkarni
  * bsk524
  */
-package bonus;
 
 import javax.swing.JOptionPane;
 
@@ -15,7 +14,7 @@ public class Board {
 	}
 	
 	public void addToHistory (String record) {
-		history += record + "\n";
+		history += record + "\n\n";
 	}
 	
 	public void showHistory() {
